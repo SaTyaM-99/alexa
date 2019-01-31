@@ -1,0 +1,90 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "atlas",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "samples": [
+            "hello"
+          ]
+        },{
+          "name": "gamePlay",
+          "slots": [
+              {
+                  "name": "country",
+                  "type": "AMAZON.Country",
+                  "samples": [
+                      "{country}",
+                      "the country is {country}"
+                  ]
+              }
+          ],
+          "samples": [
+              "i say {country}",
+              "{country}",
+              "start"
+          ]
+      },
+      {
+          "name": "restartGame",
+          "slots": [],
+          "samples": [
+              "start the game",
+              "restart the game"
+          ]
+      }
+  ],
+  "types": []
+},
+"dialog": {
+  "intents": [
+      {
+          "name": "gamePlay",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+              {
+                  "name": "country",
+                  "type": "AMAZON.Country",
+                  "confirmationRequired": false,
+                  "elicitationRequired": true,
+                  "prompts": {
+                      "elicitation": "Elicit.Slot.349184635725.896864593042"
+                  }
+              }
+          ]
+      }
+  ],
+  "delegationStrategy": "ALWAYS"
+},
+"prompts": [
+  {
+      "id": "Elicit.Slot.349184635725.896864593042",
+      "variations": [
+          {
+              "type": "PlainText",
+              "value": "i dont think its a country"
+          },
+          {
+              "type": "PlainText",
+              "value": "please tell a valid country"
+          }
+      ]
+  }
+]
+    }
+  }
+
